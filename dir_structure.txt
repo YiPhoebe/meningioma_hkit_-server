@@ -1,0 +1,69 @@
+.
+├── HD-BET                        # HD-BET 원본 코드 (필요 없음)
+│   ├── HD_BET
+│   ├── HD_BET.egg-info
+│   └── build
+├── bet_output                    # HD-BET skull stripping 결과 저장
+│   ├── bet_output_test           # test용 skull-stripped 이미지
+│   ├── bet_output_train          # train용 skull-stripped 이미지
+│   ├── image_shape.py
+│   └── make_final_mask.py
+├── hd-bet_params                 # HD-BET pretrained 파라미터
+│   └── release_2.0.0
+├── raw_data                      # 원본 GTV/T1c 및 마스크 처리 스크립트 포함
+│   ├── all_gtv                   # 전체 GTV 원본
+│   ├── all_t1c                   # 전체 T1c 원본
+│   ├── test_gtv                  # 테스트용 GTV
+│   ├── test_t1c                  # 테스트용 T1c
+│   ├── train_gtv                 # 학습용 GTV
+│   ├── train_t1c                 # 학습용 T1c
+│   ├── .gitignore
+│   ├── gtv_rename.py
+│   ├── make_bet_t1c.py           # BET 입력 생성 스크립트
+│   ├── make_mask_gtv.py
+│   ├── make_mask_t1c.py
+│   ├── prepare_bet_input.py 
+│   ├── preprocess_gtv_mask.py
+│   ├── split_gtv_by_test_csv.py
+│   └── split_t1c_by_test_csv.py
+├── slice                         # 슬라이스 이미지 저장
+│   ├── slice_test_npy            # 테스트용 .npy 슬라이스
+│   ├── slice_test_png            # 테스트용 .png 시각화
+│   ├── slice_train_npy           # 학습용 .npy 슬라이스
+│   ├── slice_train_png           # 학습용 .png 시각화
+│   ├── slice_test.py             # 테스트 슬라이스 스크립트
+│   └── slice_train.py            # 학습 슬라이스 스크립트
+└── train_png                     # 과거 시각화 이미지 (미사용)
+    ├── axial_png
+    └── segital_png
+├── train                          # 학습 파이프라인
+│   ├── train.py
+│   ├── model.py
+│   ├── loss.py
+│   └── scheduler.py               # optional
+├── test                           # 테스트 및 추론
+│   ├── inference.py
+│   └── stitch_volume.py          # 2D → 3D 볼륨 복원
+├── core                           # 공통 로직 모듈
+│   ├── dataset.py
+│   ├── transforms.py
+│   ├── metrics.py
+│   └── utils.py
+├── visualize                      # 시각화 모듈
+│   ├── overlay.py
+│   ├── gradcam.py
+│   └── report_plot.py
+├── configs                        # 실험 설정
+│   └── config.yaml
+├── outputs                        # 모든 결과물 저장
+│   ├── checkpoints                # .pth 모델 저장
+│   ├── logs                       # 학습 로그 CSV
+│   ├── metrics                    # 평가 지표 결과
+│   ├── preds                      # 예측 마스크 .npy/.nii.gz
+│   └── visualizations            # overlay, GradCAM 이미지
+├── data_list                      # train/test split 정보
+│   ├── train_files.csv
+│   └── test_files.csv
+└── README.md                      # 프로젝트 설명
+└── .gitignore
+└── test_files.csv
